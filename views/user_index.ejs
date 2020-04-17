@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href= "/public/assets/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="  background-image:
+linear-gradient(
+  to right, 
+  #6D214F,
+  #6D214F 15%,
+  #F8EFBA 15%,
+  #F8EFBA 85%,
+  #6D214F 85%
+);}">
+
+<div class="container">
+  <h1 id="wa"><%= title %></h1>
+  <a href="/add" class="btn btn-lm "  style= "background-color: #6D214F; color:#F8EFBA;font-weight: bold; margin-bottom: 4%;" >Ajouter une citation</a><br/><br/>
+  <table class=" table table-striped"  style="background-color: #6D214F;">
+    <thead>
+      <tr style="color: blanchedalmond;">
+        <th>Auteur</th>
+        <th>Email</th>
+        <th>Citation</th>
+        <th>Modifier/Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(function(user){ %>
+            <tr style="color: white;">
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.cita %></td>
+                <td>
+                    <a href="edit/<%= user.id %>" class="btn btn-outline-warning">Modifier</a>
+                    <a href="delete/<%= user.id %>" class="btn btn-outline-danger">Supprimer</a>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
